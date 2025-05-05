@@ -3,51 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urbanes Loft | Berlin</title>
-    <link rel="stylesheet" href="./css/style.css"> <!-- Pfad mit ./ korrigiert -->
+    <title>Modernes Familienwohnung | Berlin</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header">
-        <h1>Urbanes Industrie-Loft</h1>
-        <h2>Berlin-Kreuzberg • 75 m² • 3 Gäste</h2>
-    </header>
-    
-    <div class="gallery">
-        <img src="./images/Wohnzimmer.jpeg" alt="Wohnbereich" class="main-img">
-        <img src="./images/Esszimmer.jpeg" alt="Esszimmer">
-        <img src="./images/Kueche.jpeg" alt="Küche">
-        <img src="./images/Elternschlafzimmer.jpeg" alt="Schlafzimmer">
-        <img src="./images/Gaesteschlafzimmer.jpeg" alt="Schlafzimmer">
-        <img src="./images/Badezimmer.jpeg" alt="Badezimmer">
-        <img src="./images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
-    </div>
-<div class="content-container">
-        <main class="description">
+    <div class="container">
+        <header class="header">
+            <h1>Familienwohnung Berlin</h1>
+            <p class="subtitle">120 m² • 3 Schlafzimmer • 2 Bäder</p>
+        </header>
+
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich" class="active">
+                <img src="images/Esszimmer.jpeg" alt="Esszimmer">
+                <img src="images/Kueche.jpeg" alt="Küche">
+                <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
+                <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
+                <img src="images/Badezimmer.jpeg" alt="Badezimmer">
+                <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
+            </div>
+            <button class="nav-btn prev">❮</button>
+            <button class="nav-btn next">❯</button>
+            <div class="dots-container"></div>
+        </div>
+
+        <main class="content">
             <section>
-                <h3>Das Loft</h3>
-                <p>Authentisches Industriedesign meets moderne Wohnkultur. Das Loft befindet sich in einem ehemaligen Fabrikgebäude aus den 1920er Jahren und vereint historischen Charme mit zeitgemäßem Komfort.</p>
+                <h2>Die Wohnung</h2>
+                <p>Geräumige Familienwohnung mit lichtdurchfluteten Räumen und hochwertiger Ausstattung. Moderne Architektur trifft auf funktionales Wohnkonzept für Familien.</p>
             </section>
 
-            <section class="features">
-                <h3>Ausstattung</h3>
-                <div class="features-grid">
-                    <div>✔️ Original-Dielenboden</div>
-                    <div>✔️ Smarte Beleuchtung</div>
-                    <div>✔️ Designerküche</div>
-                    <div>✔️ Regenbrause</div>
-                    <div>✔️ Arbeitsplatz</div>
-                    <div>✔️ Soundanlage</div>
+            <section class="details">
+                <div class="detail-item">
+                    <h3>Ausstattung</h3>
+                    <ul>
+                        <li>Moderne Einbauküche</li>
+                        <li>Parkettböden</li>
+                        <li>Dusche & Badewanne</li>
+                        <li>Balkon</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <h3>Lage</h3>
+                    <ul>
+                        <li>Zentrale Wohnlage</li>
+                        <li>Gute Anbindung</li>
+                        <li>Nahe Schulen & Parks</li>
+                    </ul>
                 </div>
             </section>
         </main>
-
-        <aside class="booking">
-            <div class="price-container">
-                <span class="price">€229</span>
-                <span class="night">/ Nacht</span>
-            </div>
-            <button class="book-btn">Anfrage senden</button>
-        </aside>
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
