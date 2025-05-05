@@ -3,65 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Familienwohnung am Kanal | Den Haag</title>
+    <title>Modernes Familienwohnung | Berlin</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Temporärer Stil für schnelle Ansicht */
-        body { margin: 0; font-family: Arial, sans-serif; }
-        .gallery-container { width: 100%; overflow: hidden; position: relative; }
-        .gallery { display: flex; transition: transform 0.5s ease; height: 400px; }
-        .gallery img { min-width: 100%; object-fit: cover; }
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); 
-                 background: rgba(0,0,0,0.5); color: white; border: none; 
-                 padding: 15px; cursor: pointer; z-index: 10; }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-    </style>
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="gallery">
-            <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich">
-            <img src="images/Esszimmer.jpeg" alt="Esszimmer">
-            <img src="images/Kueche.jpeg" alt="Küche">
-            <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
-            <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
-            <img src="images/Badezimmer.jpeg" alt="Badezimmer">
-            <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
+    <div class="container">
+        <header class="header">
+            <h1>Familienwohnung Berlin</h1>
+            <p class="subtitle">120 m² • 3 Schlafzimmer • 2 Bäder</p>
+        </header>
+
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich" class="active">
+                <img src="images/Esszimmer.jpeg" alt="Esszimmer">
+                <img src="images/Kueche.jpeg" alt="Küche">
+                <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
+                <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
+                <img src="images/Badezimmer.jpeg" alt="Badezimmer">
+                <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
+            </div>
+            <button class="nav-btn prev">❮</button>
+            <button class="nav-btn next">❯</button>
+            <div class="dots-container"></div>
         </div>
-        <button class="nav-btn prev">❮</button>
-        <button class="nav-btn next">❯</button>
+
+        <main class="content">
+            <section>
+                <h2>Die Wohnung</h2>
+                <p>Geräumige Familienwohnung mit lichtdurchfluteten Räumen und hochwertiger Ausstattung. Moderne Architektur trifft auf funktionales Wohnkonzept für Familien.</p>
+            </section>
+
+            <section class="details">
+                <div class="detail-item">
+                    <h3>Ausstattung</h3>
+                    <ul>
+                        <li>Moderne Einbauküche</li>
+                        <li>Parkettböden</li>
+                        <li>Dusche & Badewanne</li>
+                        <li>Balkon</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <h3>Lage</h3>
+                    <ul>
+                        <li>Zentrale Wohnlage</li>
+                        <li>Gute Anbindung</li>
+                        <li>Nahe Schulen & Parks</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const gallery = document.querySelector('.gallery');
-            const images = document.querySelectorAll('.gallery img');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            let currentIndex = 0;
-            const imageCount = images.length;
-
-            function updateGallery() {
-                gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            prevBtn.addEventListener('click', function() {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : imageCount - 1;
-                updateGallery();
-            });
-
-            nextBtn.addEventListener('click', function() {
-                currentIndex = (currentIndex < imageCount - 1) ? currentIndex + 1 : 0;
-                updateGallery();
-            });
-
-            // Start autoplay
-            setInterval(function() {
-                currentIndex = (currentIndex < imageCount - 1) ? currentIndex + 1 : 0;
-                updateGallery();
-            }, 3000);
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
