@@ -1,124 +1,131 @@
+/* Farbpalette */
 :root {
-    --primary: #2c3e50;
-    --secondary: #7f8c8d;
-    --light: #ecf0f1;
-    --accent: #3498db;
+    --primary-color: #2c3e50;
+    --secondary-color: #7f8c8d;
+    --accent-color: #3498db;
+    --light-bg: #f9f9f9;
+    --border-color: #e0e0e0;
 }
 
+/* Grundlegende Styles */
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: var(--primary);
-    background: white;
+    color: var(--primary-color);
+    background-color: white;
     margin: 0;
     padding: 0;
-}
-
-.container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Header */
 .header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
-h1 {
+.header h1 {
     font-weight: 300;
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    color: var(--primary-color);
 }
 
 .subtitle {
-    color: var(--secondary);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background-color: var(--light-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.2rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Abschnitte */
+.section {
+    margin-bottom: 3rem;
+}
+
+.section h2 {
+    color: var(--accent-color);
+    font-weight: 400;
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-intro {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* Listen */
+.feature-list {
+    padding-left: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.feature-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* Raumkarten */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.room-card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.room-card strong {
+    display: block;
+    margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
 
-.gallery-container {
-    position: relative;
-    margin: 30px 0;
-}
-
-.gallery {
-    display: flex;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.gallery img {
-    width: 100%;
-    flex-shrink: 0;
-    transition: transform 0.5s ease;
-    display: none;
-}
-
-.gallery img.active {
-    display: block;
-}
-
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.7);
-    border: none;
-    font-size: 1.5rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    color: var(--primary);
-    border-radius: 50%;
-}
-
-.prev {
-    left: 20px;
-}
-
-.next {
-    right: 20px;
-}
-
-.dots-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: var(--primary);
-}
-
-.content {
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-.details {
+/* Ausstattung */
+.equipment-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.8rem;
+    margin: 1.5rem 0;
 }
 
+.equipment-item {
+    padding: 0.8rem;
+    background: var(--light-bg);
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .details {
+    .room-grid, .equipment-grid {
         grid-template-columns: 1fr;
     }
     
-    .nav-btn {
-        padding: 8px 12px;
-        font-size: 1.2rem;
+    body {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
     }
 }
