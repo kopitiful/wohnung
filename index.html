@@ -5,80 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Familienwohnung am Kanal | Den Haag</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Temporärer Stil für schnelle Ansicht */
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .gallery-container { width: 100%; overflow: hidden; position: relative; }
+        .gallery { display: flex; transition: transform 0.5s ease; height: 400px; }
+        .gallery img { min-width: 100%; object-fit: cover; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); 
+                 background: rgba(0,0,0,0.5); color: white; border: none; 
+                 padding: 15px; cursor: pointer; z-index: 10; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Amsterdamse Vaart</h1>
-            <p class="subtitle">Geräumige Familienwohnung mit Kanalblick in Leyenburg</p>
-        </header>
-
-        <!-- Bildkarussell -->
-        <div class="gallery-container">
-            <div class="gallery">
-                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich mit Kanalblick" class="active">
-                <img src="images/Esszimmer.jpeg" alt="Großzügiges Esszimmer">
-                <img src="images/Kueche.jpeg" alt="Moderne Einbauküche">
-                <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
-                <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
-                <img src="images/Badezimmer.jpeg" alt="Modernes Badezimmer">
-                <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
-            </div>
-            <button class="nav-btn prev">❮</button>
-            <button class="nav-btn next">❯</button>
-            <div class="dots-container"></div>
+    <div class="gallery-container">
+        <div class="gallery">
+            <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich">
+            <img src="images/Esszimmer.jpeg" alt="Esszimmer">
+            <img src="images/Kueche.jpeg" alt="Küche">
+            <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
+            <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
+            <img src="images/Badezimmer.jpeg" alt="Badezimmer">
+            <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
         </div>
-
-        <main class="content">
-            <section class="prose">
-                <p>Diese lichtdurchflutete Wohnung im Herzen von Leyenburg vereint holländischen Charme mit modernem Komfort. Die besondere Lage direkt am Kanal schenkt Ihnen sowohl Ruhe als auch städtische Lebendigkeit – nur wenige Minuten entfernt vom geschäftigen Zentrum Den Haags und doch im grünen Wohnviertel gelegen.</p>
-                
-                <p>Das Haus stammt aus den 1930er Jahren und wurde liebevoll modernisiert, wobei der charakteristische Charme erhalten blieb. Hohe Decken, große Fenster und der Blick aufs Wasser schaffen eine einladende Atmosphäre.</p>
-            </section>
-
-            <section class="details">
-                <div class="detail-card">
-                    <h2>Die Lage</h2>
-                    <p>Perfekt positioniert zwischen Stadt und Natur:</p>
-                    <ul>
-                        <li><strong>3 km</strong> zum Strand von Scheveningen</li>
-                        <li><strong>15 Minuten</strong> mit dem Rad ins Zentrum</li>
-                        <li>Direkter Kanalzugang für Bootsausflüge</li>
-                        <li>Zuiderpark in 5 Gehminuten erreichbar</li>
-                    </ul>
-                    <p class="small">Das Viertel Leyenburg bietet Einkaufsmöglichkeiten des täglichen Bedarfs und gute Anbindung an öffentliche Verkehrsmittel.</p>
-                </div>
-
-                <div class="detail-card">
-                    <h2>Die Räume</h2>
-                    <div class="room-highlights">
-                        <div>
-                            <h3>Erdgeschoss</h3>
-                            <p>Offene Wohnküche mit Essecke, gemütliches Wohnzimmer mit Kaminofen, separates Kinderzimmer und Zugang zum gartenähnlichen Balkon.</p>
-                        </div>
-                        <div>
-                            <h3>Obergeschoss</h3>
-                            <p>Drei Schlafzimmer, darunter ein geräumiges Elternschlafzimmer mit Kleiderschranksystem, sowie ein modernes Bad mit Regendusche und freistehender Wanne.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="equipment">
-                <h2>Besondere Ausstattung</h2>
-                <div class="equipment-grid">
-                    <div class="equipment-item">E-Lastenrad für 2 Kinder</div>
-                    <div class="equipment-item">Aufblasbares Kanu</div>
-                    <div class="equipment-item">Verschiedene Fahrräder</div>
-                    <div class="equipment-item">Kinderausstattung</div>
-                    <div class="equipment-item">Arbeitsplatz mit Monitor</div>
-                    <div class="equipment-item">Waschmaschine/Trockner</div>
-                </div>
-                <p class="prose">Für Familien besonders praktisch: Vorhandenes Spielzeug, Kinderbücher in mehreren Sprachen und komplettes Babyequipment auf Anfrage verfügbar.</p>
-            </section>
-        </main>
+        <button class="nav-btn prev">❮</button>
+        <button class="nav-btn next">❯</button>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.querySelector('.gallery');
+            const images = document.querySelectorAll('.gallery img');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            const imageCount = images.length;
+
+            function updateGallery() {
+                gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : imageCount - 1;
+                updateGallery();
+            });
+
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex < imageCount - 1) ? currentIndex + 1 : 0;
+                updateGallery();
+            });
+
+            // Start autoplay
+            setInterval(function() {
+                currentIndex = (currentIndex < imageCount - 1) ? currentIndex + 1 : 0;
+                updateGallery();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
