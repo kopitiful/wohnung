@@ -3,85 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geräumige Wohnung in Den Haag | Kanalblick</title>
+    <title>Familienwohnung am Kanal | Den Haag</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
-        <h1>Geräumige Wohnung in Den Haag</h1>
-        <p class="subtitle">Kanalblick • 120 m² • 3 Schlafzimmer • 2 Bäder</p>
-    </header>
+    <div class="container">
+        <header class="header">
+            <h1>Amsterdamse Vaart</h1>
+            <p class="subtitle">Geräumige Familienwohnung mit Kanalblick in Leyenburg</p>
+        </header>
 
-    <div class="highlight-box">
-        <p>Willkommen in unserer geräumigen und komfortablen Wohnung im Herzen von Den Haag, perfekt für Familien und Gruppen!</p>
+        <!-- Bildkarussell -->
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich mit Kanalblick" class="active">
+                <img src="images/Esszimmer.jpeg" alt="Großzügiges Esszimmer">
+                <img src="images/Kueche.jpeg" alt="Moderne Einbauküche">
+                <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
+                <img src="images/Gaesteschlafzimmer.jpeg" alt="Gästezimmer">
+                <img src="images/Badezimmer.jpeg" alt="Modernes Badezimmer">
+                <img src="images/Kinderschlafzimmer.jpeg" alt="Kinderschlafzimmer">
+            </div>
+            <button class="nav-btn prev">❮</button>
+            <button class="nav-btn next">❯</button>
+            <div class="dots-container"></div>
+        </div>
+
+        <main class="content">
+            <section class="prose">
+                <p>Diese lichtdurchflutete Wohnung im Herzen von Leyenburg vereint holländischen Charme mit modernem Komfort. Die besondere Lage direkt am Kanal schenkt Ihnen sowohl Ruhe als auch städtische Lebendigkeit – nur wenige Minuten entfernt vom geschäftigen Zentrum Den Haags und doch im grünen Wohnviertel gelegen.</p>
+                
+                <p>Das Haus stammt aus den 1930er Jahren und wurde liebevoll modernisiert, wobei der charakteristische Charme erhalten blieb. Hohe Decken, große Fenster und der Blick aufs Wasser schaffen eine einladende Atmosphäre.</p>
+            </section>
+
+            <section class="details">
+                <div class="detail-card">
+                    <h2>Die Lage</h2>
+                    <p>Perfekt positioniert zwischen Stadt und Natur:</p>
+                    <ul>
+                        <li><strong>3 km</strong> zum Strand von Scheveningen</li>
+                        <li><strong>15 Minuten</strong> mit dem Rad ins Zentrum</li>
+                        <li>Direkter Kanalzugang für Bootsausflüge</li>
+                        <li>Zuiderpark in 5 Gehminuten erreichbar</li>
+                    </ul>
+                    <p class="small">Das Viertel Leyenburg bietet Einkaufsmöglichkeiten des täglichen Bedarfs und gute Anbindung an öffentliche Verkehrsmittel.</p>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Die Räume</h2>
+                    <div class="room-highlights">
+                        <div>
+                            <h3>Erdgeschoss</h3>
+                            <p>Offene Wohnküche mit Essecke, gemütliches Wohnzimmer mit Kaminofen, separates Kinderzimmer und Zugang zum gartenähnlichen Balkon.</p>
+                        </div>
+                        <div>
+                            <h3>Obergeschoss</h3>
+                            <p>Drei Schlafzimmer, darunter ein geräumiges Elternschlafzimmer mit Kleiderschranksystem, sowie ein modernes Bad mit Regendusche und freistehender Wanne.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="equipment">
+                <h2>Besondere Ausstattung</h2>
+                <div class="equipment-grid">
+                    <div class="equipment-item">E-Lastenrad für 2 Kinder</div>
+                    <div class="equipment-item">Aufblasbares Kanu</div>
+                    <div class="equipment-item">Verschiedene Fahrräder</div>
+                    <div class="equipment-item">Kinderausstattung</div>
+                    <div class="equipment-item">Arbeitsplatz mit Monitor</div>
+                    <div class="equipment-item">Waschmaschine/Trockner</div>
+                </div>
+                <p class="prose">Für Familien besonders praktisch: Vorhandenes Spielzeug, Kinderbücher in mehreren Sprachen und komplettes Babyequipment auf Anfrage verfügbar.</p>
+            </section>
+        </main>
     </div>
 
-    <main class="container">
-        <section class="section">
-            <h2>Ideale Lage</h2>
-            <ul class="feature-list">
-                <li><strong>3 km</strong> zum wunderschönen Strand</li>
-                <li><strong>3 km</strong> ins pulsierende Stadtzentrum</li>
-                <li>Direkt am Kanal im Viertel <strong>Leyenburg</strong></li>
-                <li>Nah am <strong>Zuiderpark</strong></li>
-            </ul>
-            <p class="location-desc">Perfekte Kombination aus Natur (Kanalblick) und Stadtleben.</p>
-        </section>
-
-        <section class="section">
-            <h2>Die Wohnung</h2>
-            <p class="section-intro">Zweistöckiges Domizil mit lichtdurchfluteten Räumen:</p>
-            
-            <h3>Erdgeschoss</h3>
-            <div class="room-grid">
-                <div class="room-card">
-                    <strong>Große Küche</strong>
-                    <p>Moderne Einbauküche</p>
-                </div>
-                <div class="room-card">
-                    <strong>Esszimmer</strong>
-                    <p>Großer Esstisch (10 Personen)</p>
-                </div>
-                <div class="room-card">
-                    <strong>Wohnzimmer</strong>
-                    <p>Mit Kanalblick</p>
-                </div>
-                <div class="room-card">
-                    <strong>Kinderzimmer</strong>
-                    <p>Mit Spielzeug/Schlafmöglichkeit</p>
-                </div>
-                <div class="room-card">
-                    <strong>Balkon</strong>
-                    <p>Zugang zum Garten</p>
-                </div>
-            </div>
-            
-            <h3>Obergeschoss</h3>
-            <div class="room-grid">
-                <div class="room-card">
-                    <strong>3 Schlafzimmer</strong>
-                    <p>Eins als Arbeitszimmer nutzbar</p>
-                </div>
-                <div class="room-card">
-                    <strong>Badezimmer</strong>
-                    <p>Mit Dusche & Badewanne</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Ausstattung</h2>
-            <div class="equipment-grid">
-                <div class="equipment-item">Aufblasbares Kanu</div>
-                <div class="equipment-item">E-Lastenrad (2 Kinder)</div>
-                <div class="equipment-item">Klapprad</div>
-                <div class="equipment-item">Damenrad mit Kindersitz</div>
-                <div class="equipment-item">Kinderfahrräder</div>
-                <div class="equipment-item">Laufräder & Roller</div>
-                <div class="equipment-item">Waschmaschine</div>
-                <div class="equipment-item">Parkettböden</div>
-            </div>
-        </section>
-    </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
