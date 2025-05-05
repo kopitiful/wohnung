@@ -1,39 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const gallery = document.querySelector('.gallery');
     const images = document.querySelectorAll('.gallery img');
     const dotsContainer = document.querySelector('.dots-container');
     let currentIndex = 0;
     
-    // Create dots
-    images.forEach((img, index) => {
+    // Erstelle Navigationspunkte
+    images.forEach((_, index) => {
         const dot = document.createElement('span');
         dot.classList.add('dot');
         if(index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => showImage(index));
+        dot.addEventListener('click', () => goToImage(index));
         dotsContainer.appendChild(dot);
     });
     
     const dots = document.querySelectorAll('.dot');
     
-    function showImage(index) {
-        images[currentIndex].classList.remove('active');
-        dots[currentIndex].classList.remove('active');
-        
-        currentIndex = (index + images.length) % images.length;
-        
-        images[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
-    }
-    
+    // Navigation
     document.querySelector('.prev').addEventListener('click', () => {
-        showImage(currentIndex - 1);
+        goToImage(currentIndex - 1);
     });
     
     document.querySelector('.next').addEventListener('click', () => {
-        showImage(currentIndex + 1);
+        goToImage(currentIndex + 1);
     });
     
-    // Auto-rotate every 5 seconds
+    // Bildwechsel-Funktion
+    function goToImage(index) {
+        if(index >= images.length) index = 0;
+        if(index < 0) index = images.length - 1;
+        
+        gallery.style.transform = `translateX(-${index * 100}%)`;
+        dots[currentIndex].classList.remove('active');
+        currentIndex = index;
+        dots[currentIndex].classList.add('active');
+    }
+    
+    // Automatische Rotation
     setInterval(() => {
-        showImage(currentIndex + 1);
+        goToImage(currentIndex + 1);
     }, 5000);
 });
