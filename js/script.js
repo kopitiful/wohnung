@@ -69,3 +69,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start
     startAutoplay();
 });
+// Formular-Handling
+document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const recipient = formData.get('recipient');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    // Hier würde normalerweise der Versand erfolgen
+    console.log('Anfrage würde gesendet an:', recipient);
+    console.log('Von:', email);
+    console.log('Nachricht:', message);
+    
+    alert('Vielen Dank! Ihre Anfrage wurde übermittelt.');
+    this.reset();
+});
