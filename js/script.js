@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.querySelector('.gallery');
     const images = document.querySelectorAll('.gallery img');
@@ -123,5 +124,46 @@ form.addEventListener('submit', function(e) {
     .finally(() => {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Anfrage versenden';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('inquiryForm');
+    const statusElement = document.createElement('div');
+    statusElement.className = 'form-status';
+    form.parentNode.insertBefore(statusElement, form.nextSibling);
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Button-Status ändern
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet...';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                statusElement.textContent = 'Vielen Dank! Ihre Anfrage wurde versendet.';
+                statusElement.className = 'form-status success';
+                form.reset();
+            } else {
+                throw new Error('Serverfehler');
+            }
+        } catch (error) {
+            statusElement.textContent = 'Fehler beim Senden. Bitte versuchen Sie es später.';
+            statusElement.className = 'form-status error';
+            console.error('Formularfehler:', error);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Anfrage versenden';
+        }
     });
 });
