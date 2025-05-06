@@ -86,3 +86,42 @@ document.getElementById('inquiryForm').addEventListener('submit', function(e) {
     alert('Vielen Dank! Ihre Anfrage wurde übermittelt.');
     this.reset();
 });
+
+// Formular-Handling für Formspree
+const form = document.getElementById('inquiryForm');
+const statusElement = document.getElementById('form-status');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Submit-Button deaktivieren
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet...';
+    
+    // Formular versenden
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            statusElement.textContent = 'Vielen Dank! Ihre Anfrage wurde versendet.';
+            statusElement.className = 'status-message success';
+            form.reset();
+        } else {
+            throw new Error('Fehler beim Senden');
+        }
+    })
+    .catch(error => {
+        statusElement.textContent = 'Fehler! Bitte versuchen Sie es später erneut.';
+        statusElement.className = 'status-message error';
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Anfrage versenden';
+    });
+});
