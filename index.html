@@ -62,28 +62,36 @@
                     </ul>
                 </div>
             </section>
+            <!-- Vor dem schließenden </main> Tag einfügen -->
             <section class="contact-form">
                 <h2>Anfrage stellen</h2>
-                <form id="inquiryForm">
+                <form action="https://formspree.io/f/mzzrrqrw" method="POST" id="inquiryForm">
                     <div class="form-group">
                         <textarea 
-                            id="message" 
                             name="message" 
                             rows="5" 
-                            placeholder="Ihre Nachricht..." 
+                            placeholder="Ihre Nachricht an den Vermieter..." 
                             required></textarea>
                     </div>
                     <div class="form-group">
                         <input 
                             type="email" 
-                            id="email" 
                             name="email" 
                             placeholder="Ihre E-Mail Adresse" 
                             required>
                     </div>
-                    <input type="hidden" name="recipient" value="vermietung@example.com">
+                    <!-- Optional: Telefonnummer -->
+                    <div class="form-group">
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            placeholder="Telefonnummer (optional)">
+                    </div>
+                    <!-- Anti-Spam Honeypot -->
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="submit-btn">Anfrage versenden</button>
                 </form>
+                <div id="form-status" class="status-message"></div>
             </section>
         </main>
     </div>
