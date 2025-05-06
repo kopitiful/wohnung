@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernes Familienwohnung | Berlin</title>
+    <title>Wohnung in Den Haag</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Familienwohnung Berlin</h1>
-            <p class="subtitle">120 m² • 3 Schlafzimmer • 2 Bäder</p>
-        </header>
-
+        <!-- Bilderkarussell -->
         <div class="gallery-container">
             <div class="gallery">
-                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich" class="active">
+                <img src="images/Wohnzimmer.jpeg" alt="Wohnbereich">
                 <img src="images/Esszimmer.jpeg" alt="Esszimmer">
                 <img src="images/Kueche.jpeg" alt="Küche">
                 <img src="images/Elternschlafzimmer.jpeg" alt="Elternschlafzimmer">
@@ -28,30 +24,35 @@
             <div class="dots-container"></div>
         </div>
 
+        <!-- TEXTBEREICHE - Hier können Sie Ihre Beschreibung einfügen -->
         <main class="content">
-            <section>
-                <h2>Die Wohnung</h2>
-                <p>Geräumige Familienwohnung mit lichtdurchfluteten Räumen und hochwertiger Ausstattung. Moderne Architektur trifft auf funktionales Wohnkonzept für Familien.</p>
+            <section class="prose">
+                <!-- Erster Absatz Ihrer Beschreibung hier -->
+                <h1>Große Wohnung in zentraler Lage</h1>
+                <p>Willkommen in unserer geräumigen und komfortablen Wohnung!</p>
             </section>
 
             <section class="details">
-                <div class="detail-item">
-                    <h3>Ausstattung</h3>
-                    <ul>
-                        <li>Moderne Einbauküche</li>
-                        <li>Parkettböden</li>
-                        <li>Dusche & Badewanne</li>
-                        <li>Balkon</li>
-                    </ul>
+                <div class="detail-card">
+                    <h2>Lage</h2>
+                    <!-- Lagebeschreibung hier -->
+                    <p>Nur 3 km vom wunderschönen Strand entfernt...</p>
                 </div>
-                <div class="detail-item">
-                    <h3>Lage</h3>
-                    <ul>
-                        <li>Zentrale Wohnlage</li>
-                        <li>Gute Anbindung</li>
-                        <li>Nahe Schulen & Parks</li>
-                    </ul>
+
+                <div class="detail-card">
+                    <h2>Die Unterkunft</h2>
+                    <!-- Wohnungsbeschreibung hier -->
+                    <p>Die Wohnung besteht aus zwei Etagen...</p>
                 </div>
+            </section>
+
+            <section class="equipment">
+                <h2>Ausstattung</h2>
+                <!-- Ausstattungsliste hier -->
+                <ul>
+                    <li>Aufblasbares Kanu</li>
+                    <li>E-Lastenrad</li>
+                </ul>
             </section>
         </main>
     </div>
