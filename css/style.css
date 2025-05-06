@@ -133,6 +133,50 @@ body {
     font-weight: 400;
 }
 
+/* Kontaktformular */
+.contact-form {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+textarea, input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .gallery-container {
@@ -149,3 +193,5 @@ body {
         font-size: 20px;
     }
 }
+
+
