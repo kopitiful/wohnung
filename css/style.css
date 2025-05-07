@@ -273,29 +273,3 @@ body {
     background: #f8d7da;
     color: #721c24;
 }
-
-/* Kalenderdesign */
-#calendar {
-    max-width: 900px;
-    margin: 20px auto;
-    font-family: 'Helvetica Neue', sans-serif;
-}
-
-.fc-header-toolbar {
-    margin-bottom: 1em;
-}
-
-.fc-daygrid-event {
-    cursor: pointer;
-}
-
-.fc-event-available {
-    background-color: #2ecc71 !important;
-    border-color: #27ae60 !important;
-}
-
-.fc-event-booked {
-    background-color: #e74c3c !important;
-    border-color: #c0392b !important;
-}
-
