@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*
 //Kalender
 
 // In script.js
@@ -228,3 +229,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialer Aufruf
     renderCalendar();
 });
+*/
