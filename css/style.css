@@ -273,3 +273,60 @@ body {
     background: #f8d7da;
     color: #721c24;
 }
+
+/* In style.css */
+.booking-calendar {
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.calendar {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.weekdays div {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.days div {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.days div:hover {
+    background: #f0f0f0;
+}
+
+.day-available {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.day-booked {
+    background: #ffebee;
+    color: #c62828;
+    text-decoration: line-through;
+}
