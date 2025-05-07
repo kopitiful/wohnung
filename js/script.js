@@ -167,3 +167,64 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+//Kalender
+
+// In script.js
+document.addEventListener('DOMContentLoaded', function() {
+    let currentDate = new Date();
+    const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni",
+                       "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+    function renderCalendar() {
+        const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+        
+        document.getElementById('current-month').textContent = 
+            `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+
+        let daysHtml = '';
+        let dayCounter = 1;
+
+        // Leere Tage am Anfang
+        for (let i = 0; i < firstDay.getDay(); i++) {
+            daysHtml += '<div></div>';
+        }
+
+        // Tage des Monats
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+            const dateStr = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${i}`;
+            const isBooked = checkIfDateIsBooked(dateStr); // Ihre Buchungslogik
+            
+            daysHtml += `
+                <div class="${isBooked ? 'day-booked' : 'day-available'}" 
+                     data-date="${dateStr}">
+                    ${i}
+                </div>
+            `;
+        }
+
+        document.getElementById('calendar-days').innerHTML = daysHtml;
+    }
+
+    // Beispiel-Funktion (ersetzen Sie durch echte Logik)
+    function checkIfDateIsBooked(dateStr) {
+        // Hier Ihre Buchungsprüfung einfügen
+        const bookedDates = ['2023-8-15', '2023-8-16']; // Beispiel
+        return bookedDates.includes(dateStr);
+    }
+
+    // Navigation
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+
+    // Initialer Aufruf
+    renderCalendar();
+});
