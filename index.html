@@ -70,6 +70,22 @@
         <p>Grün = verfügbar | Rot = gebucht</p>
     </div>
 </section>
+            <!-- In index.html -->
+<section class="booking-calendar">
+    <h2>Verfügbarkeit</h2>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prev-month">❮</button>
+            <h3 id="current-month">August 2023</h3>
+            <button id="next-month">❯</button>
+        </div>
+        <div class="weekdays">
+            <div>Mo</div><div>Di</div><div>Mi</div>
+            <div>Do</div><div>Fr</div><div>Sa</div><div>So</div>
+        </div>
+        <div class="days" id="calendar-days"></div>
+    </div>
+</section>
 <!-- Vor dem </main>-Tag einfügen -->
     <div class="contact-form">
         <form id="inquiryForm" action="https://formspree.io/f/mzzrrqrw" method="POST">
@@ -99,13 +115,6 @@
     </div>
 
     <script src="js/script.js"></script>
-    <!-- FullCalendar Dependencies -->
-    <script src="lib/moment/moment.min.js"></script>
-    <script src="lib/fullcalendar/main.js"></script>
-    <script src="lib/fullcalendar/locales/de.js"></script>
-    <link rel="stylesheet" href="lib/fullcalendar/main.css">
-    
-    <!-- Eigener Kalender-Code -->
-    <script src="js/calendar.js"></script>
+   
 </body>
 </html>
