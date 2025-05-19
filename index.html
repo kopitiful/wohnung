@@ -108,9 +108,13 @@
     </div>
 </section>
             -->
-<!-- Vor dem </main>-Tag einfügen -->
-    <div class="contact-form">
+<div class="contact-form">
     <form id="inquiryForm" action="https://formspree.io/f/mzzrrqrw" method="POST">
+        <!-- Add these hidden fields -->
+        <input type="hidden" name="_subject" value="New Booking Inquiry">
+        <input type="hidden" name="_next" value="https://ferienwohnungdenhaag.de/thank-you.html">
+        <input type="text" name="_gotcha" style="display:none">
+        
         <div class="form-group">
             <label for="name">Ihr Name*</label>
             <input type="text" id="name" name="name" required>
@@ -130,14 +134,8 @@
             <label for="message">Ihre Nachricht*</label>
             <textarea id="message" name="message" required></textarea>
         </div>
-        
-        <!-- Bestätigungsseite nach Absenden -->
-        <input type="hidden" name="_next" value="https://ferienwohnungdenhaag.de/danke.html">
-        
-        <!-- Anti-Spam -->
-        <input type="text" name="_gotcha" style="display:none">
-        
-        <button type="submit" class="submit-btn">Anfrage versenden</button>
+
+        <button type="submit">Anfrage versenden</button>
     </form>
 </div>
 
