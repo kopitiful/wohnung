@@ -108,56 +108,61 @@
     </div>
 </section>
             -->
-<div class="contact-form">
-<form id="inquiryForm" 
-      action="https://formspree.io/f/mzzrrqrw" 
-      method="POST"
-      onsubmit="return true;">  <!-- WICHTIG: onsubmit hinzufügen -->
-    
-    <!-- Ihre bestehenden Felder bleiben gleich -->
-    <input type="hidden" name="_next" value="https://ferienwohnungdenhaag.de/thank-you.html">
-    
-    <button type="submit">Absenden</button>
-</form>
-
-<!-- ENTFERNEN Sie alle JavaScript-Formular-Listener -->
-</div>
-
-
-  
-
+<!-- Vor dem </main>-Tag einfügen -->
+    <div class="contact-form">
+        <form id="inquiryForm" action="https://formspree.io/f/mzzrrqrw" method="POST">
+            <div class="form-group">
+                <label for="email">Ihre E-Mail*</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Ihre Nachricht*</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <!-- Anti-Spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <button type="submit" class="submit-btn">Anfrage versenden</button>
+        </form>
+    </div>
                 <div id="form-status" class="status-message"></div>
             </section>
         </main>
     </div>
+    <!-- Netlify Form (Hidden) - Für E-Mail-Updates -->
+<!-- Vor </body> einfügen -->
+<form name="update" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="description">
+  <input type="email" name="email">
+</form>
 
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Apartment",
-      "name": "Wohnung am Kanal in Den Haag-Leyenburg",
-      "description": "120m² Wohnung mit 3 Schlafzimmern und Kanalblick",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Beispielstraße 123",
-        "addressLocality": "Den Haag",
-        "addressRegion": "Südholland",
-        "postalCode": "1234AB",
-        "addressCountry": "NL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "52.0705",
-        "longitude": "4.3007"
-      },
-      "numberOfRooms": "3",
-      "priceRange": "€120-€150/Nacht"
+<!-- Vor dem schließenden </body>-Tag -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. URL-Parameter auslesen
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 2. Beschreibung aktualisieren (wenn Parameter vorhanden)
+    if(urlParams.has('description')) {
+      const descElement = document.getElementById('description') || 
+                         document.querySelector('.seo-text p');
+      if(descElement) descElement.innerText = urlParams.get('description');
     }
-    </script>
-    <script type="application/ld+json" src="schema.json"></script>
-    <script src="js/script.js"></script>
-    <script>document.getElementById('inquiryForm').onsubmit = null;</script>
-
+    
+    // 3. E-Mail-Links aktualisieren
+    if(urlParams.has('email')) {
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.href = 'mailto:' + urlParams.get('email');
+      });
+    }
+    
+    // 4. Cache-Busting (wichtig!)
+    if(urlParams.has('updated')) {
+      window.location.href = window.location.pathname + '?updated=' + Date.now();
+    }
+  });
+</script>
 </body>
 </html>
