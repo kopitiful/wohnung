@@ -5,11 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <title>Große Wohnung in Den Haag | 6 Schlafz. | Kanalblick | Ab €290/Nacht</title>
-    <meta name="description" 
-      content="✔ 160m² Familienwohnung in Den Haag-Leyenburg ✔ 4 Schlafzimmer ✔ Direkt am Kanal ✔ Jetzt Verfügbarkeit prüfen & unverbindlich anfragen!">
-    <meta name="keywords" 
-      content="Wohnung Den Haag, Ferienwohnung Südholland, Langzeitmiete, Kanalblick, Familienwohnung, Wohnung mieten Den Haag">
+    <meta name="description" content="✔ 160m² Familienwohnung in Den Haag-Leyenburg ✔ 4 Schlafzimmer ✔ Direkt am Kanal ✔ Jetzt Verfügbarkeit prüfen & unverbindlich anfragen!">
+    <meta name="keywords" content="Wohnung Den Haag, Ferienwohnung Südholland, Langzeitmiete, Kanalblick, Familienwohnung, Wohnung mieten Den Haag">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Karussell-Styles */
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .gallery {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .gallery img {
+            min-width: 100%;
+            object-fit: cover;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .dots-container {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R02DMVKW3N"></script>
     <script>
@@ -27,13 +59,13 @@
         <!-- Bilderkarussell -->
         <div class="gallery-container">
             <div class="gallery">
-                <img src="images/Wohnzimmer-den-haag-kanal-Wohnung.jpeg" alt="Wohnbereich mit Kanalblick in Den Haag-Leyenburg" title="Wohnzimmer der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Esszimmer-den-haag-kanal-Wohnung.jpeg" alt="Esszimmer mit grossem Esstisch in Den Haag-Leyenburg" title="Esszimmer der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Kueche-den-haag-kanal-Wohnung.jpeg" alt="Gerauemige Küche" title="Küche der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Elternschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Elternschlafzimmer mit Kanalblick in Den Haag-Leyenburg" title="Elternschlafzimmer der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Gaesteschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Gästezimmer mit Schreibtisch in Den Haag-Leyenburg" title="Gästezimmer der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Badezimmer-den-haag-kanal-Wohnung.jpg" alt="Badezimmer mit Badewanne in Den Haag-Leyenburg" title="Badezimmer der Mietwohnung Den Haag" loading="lazy">
-                <img src="images/Kinderschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Kinderschlafzimmer mit Kanalblick in Den Haag-Leyenburg" title="Kinderschlafzimmer der Mietwohnung Den Haag" loading="lazy">
+                <img src="images/Wohnzimmer-den-haag-kanal-Wohnung.jpeg" alt="Wohnbereich mit Kanalblick">
+                <img src="images/Esszimmer-den-haag-kanal-Wohnung.jpeg" alt="Esszimmer mit großem Esstisch">
+                <img src="images/Kueche-den-haag-kanal-Wohnung.jpeg" alt="Geräumige Küche">
+                <img src="images/Elternschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Elternschlafzimmer">
+                <img src="images/Gaesteschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Gästezimmer">
+                <img src="images/Badezimmer-den-haag-kanal-Wohnung.jpg" alt="Badezimmer">
+                <img src="images/Kinderschlafzimmer-den-haag-kanal-Wohnung.jpeg" alt="Kinderschlafzimmer">
             </div>
             <button class="nav-btn prev">❮</button>
             <button class="nav-btn next">❯</button>
@@ -108,27 +140,48 @@
 </section>
             -->
 <!-- Vor dem </main>-Tag einfügen -->
-    <div class="contact-form">
-        <form id="inquiryForm" action="https://formspree.io/f/mzzrrqrw" method="POST">
-            <div class="form-group">
-                <label for="email">Ihre E-Mail*</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Ihre Nachricht*</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            
-            <!-- Anti-Spam -->
-            <input type="text" name="_gotcha" style="display:none">
-            
-            <button type="submit" class="submit-btn">Anfrage versenden</button>
-        </form>
+   <div class="contact-form">
+            <form id="inquiryForm" action="https://formspree.io/f/mzzrrqrw" method="POST">
+                <!-- Formularfelder -->
+                <button type="submit" class="submit-btn">Anfrage versenden</button>
+            </form>
+        </div>
     </div>
-                <div id="form-status" class="status-message"></div>
-            </section>
-        </main>
-    </div>
+
+    <!-- Karussell JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Karussell-Funktionalität
+            const gallery = document.querySelector('.gallery');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const images = document.querySelectorAll('.gallery img');
+            let currentIndex = 0;
+            const totalImages = images.length;
+
+            function updateGallery() {
+                gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+                updateGallery();
+            });
+
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+                updateGallery();
+            });
+
+            // Autoplay (optional)
+            setInterval(() => {
+                currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+                updateGallery();
+            }, 5000);
+
+            // Formular-Fix
+            document.getElementById('inquiryForm').onsubmit = null;
+        });
+    </script>
 </body>
 </html>
