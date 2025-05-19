@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "name": "Ferienwohnung Den Haag",
+  "description": "Luxuriöse Wohnung mit Kanalblick nahe Strand und Duenen",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Den Haag",
+    "postalCode": "2547",
+    "streetAddress": "Veenendaalkade"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "52.0602",
+    "longitude": "4.2703"
+  }
+}
