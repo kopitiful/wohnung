@@ -59,7 +59,7 @@
                 <p>Nur 3 km vom wunderschönen Strand entfernt – ideal für entspannte Tage am Meer. Ebenfalls nur 3 km bis ins pulsierende Stadtzentrum, wo Sie zahlreiche Geschäfte, Restaurants und kulturelle Angebote finden.</p>
                 <p>Die Wohnung liegt direkt an einem Kanal und ist perfekt für Reisende, die sowohl die Ruhe der Natur in den Dünen als auch das lebendige Stadtleben genießen möchten. Die Wohnung liegt sehr nahe an Den Haag, nahe des Zuiderparks.</p>
                 <h2>Buchung</h2>
-                <p>Preis: ab 1835€ pro Nacht (ab 5 Gäste für jeden weiteren Gast 15€ extra) </p>   
+                <p>Preis: ab 135€ pro Nacht (ab 5 Gäste für jeden weiteren Gast 15€ extra) </p>   
                 <p>Bitte stellen Sie eine Anfrage über den Anfrage Button. Die weiteren Details werden dann über E-Mail geklärt.</p>   
             </section> 
             <section class="details">
@@ -130,31 +130,5 @@
             </section>
         </main>
     </div>
-<!-- Vor dem schließenden </body>-Tag -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. URL-Parameter auslesen
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // 2. Beschreibung aktualisieren (wenn Parameter vorhanden)
-    if(urlParams.has('description')) {
-      const descElement = document.getElementById('description') || 
-                         document.querySelector('.seo-text p');
-      if(descElement) descElement.innerText = urlParams.get('description');
-    }
-    
-    // 3. E-Mail-Links aktualisieren
-    if(urlParams.has('email')) {
-      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        link.href = 'mailto:' + urlParams.get('email');
-      });
-    }
-    
-    // 4. Cache-Busting (wichtig!)
-    if(urlParams.has('updated')) {
-      window.location.href = window.location.pathname + '?updated=' + Date.now();
-    }
-  });
-</script>
 </body>
 </html>
