@@ -1,6 +1,5 @@
 const ALLOWED_ORIGINS = [
-  "https://www.ferienwohnungdenhaag.de",
-  "https://ferienwohnungdenhaag.de",
+  "https://ferienwohnung-62i.pages.dev",
 ];
 
 const KV_KEY = "availability";
