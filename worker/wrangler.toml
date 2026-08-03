@@ -1,0 +1,12 @@
+name = "wohnung-verfuegbarkeit"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Nach dem Erstellen der KV-Namespace (siehe README) die echte ID hier eintragen:
+# wrangler kv namespace create AVAILABILITY
+kv_namespaces = [
+  { binding = "AVAILABILITY", id = "REPLACE_WITH_KV_NAMESPACE_ID" }
+]
+
+# Das Admin-Passwort NICHT hier eintragen, sondern per Secret setzen:
+# wrangler secret put ADMIN_PASSWORD

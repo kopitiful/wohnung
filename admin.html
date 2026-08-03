@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Verwaltung Verfügbarkeit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+        .admin-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 8px; align-items: center; margin-bottom: 10px; }
+        .admin-row input, .admin-row select { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .admin-row button { background: #e74c3c; color: white; border: none; border-radius: 4px; padding: 8px; cursor: pointer; }
+        #login-box { max-width: 400px; margin: 80px auto; text-align: center; }
+        #login-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        #app { display: none; }
+        .top-fields { display: flex; gap: 20px; margin-bottom: 20px; }
+        .top-fields label { display: block; font-size: 14px; margin-bottom: 4px; }
+        .top-fields input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 120px; }
+        #add-row-btn, #save-btn { background: var(--primary, #2c3e50); color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; margin-top: 10px; margin-right: 10px; }
+        #status { margin-top: 15px; padding: 10px; border-radius: 4px; }
+        .col-header { font-size: 12px; font-weight: bold; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <div id="login-box">
+        <h1>Admin-Login</h1>
+        <input type="password" id="password-input" placeholder="Passwort" autocomplete="off">
+        <button id="login-btn" class="submit-btn">Anmelden</button>
+        <p id="login-error" style="color:#c0392b;"></p>
+    </div>
+
+    <div id="app">
+        <h1>Verfügbarkeit &amp; Preis verwalten</h1>
+
+        <div class="top-fields">
+            <div>
+                <label for="default-price">Standardpreis (€/Nacht)</label>
+                <input type="number" id="default-price" min="0">
+            </div>
+            <div>
+                <label for="extra-guest-price">Aufpreis je weiterem Gast ab 5 (€)</label>
+                <input type="number" id="extra-guest-price" min="0">
+            </div>
+        </div>
+
+        <div class="admin-row col-header">
+            <div>Von</div><div>Bis</div><div>Status</div><div>Preis (optional)</div><div></div>
+        </div>
+        <div id="rows"></div>
+
+        <button id="add-row-btn" type="button">+ Zeitraum hinzufügen</button>
+        <button id="save-btn" type="button">Speichern</button>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        // Nach dem Deployen des Workers hier die echte URL eintragen (siehe worker/README.md)
+        const WORKER_URL = "https://REPLACE_WITH_YOUR_WORKER.workers.dev";
+
+        let password = "";
+        const loginBox = document.getElementById('login-box');
+        const app = document.getElementById('app');
+        const rowsEl = document.getElementById('rows');
+        const statusEl = document.getElementById('status');
+
+        function addRow(data) {
+            const row = document.createElement('div');
+            row.className = 'admin-row';
+            row.innerHTML = `
+                <input type="date" class="r-start" value="${data?.start || ''}">
+                <input type="date" class="r-end" value="${data?.end || ''}">
+                <select class="r-status">
+                    <option value="booked" ${data?.status === 'booked' ? 'selected' : ''}>Gebucht</option>
+                    <option value="available" ${data?.status === 'available' ? 'selected' : ''}>Verfügbar</option>
+                </select>
+                <input type="number" class="r-price" min="0" placeholder="Preis für diesen Zeitraum" value="${data?.price ?? ''}">
+                <button type="button" class="r-remove">✕</button>
+            `;
+            row.querySelector('.r-remove').addEventListener('click', () => row.remove());
+            rowsEl.appendChild(row);
+        }
+
+        async function loadData() {
+            const res = await fetch(`${WORKER_URL}/api/availability`);
+            const data = await res.json();
+            document.getElementById('default-price').value = data.defaultPrice ?? '';
+            document.getElementById('extra-guest-price').value = data.extraGuestPrice ?? '';
+            rowsEl.innerHTML = '';
+            (data.ranges || []).forEach(addRow);
+        }
+
+        document.getElementById('login-btn').addEventListener('click', async () => {
+            password = document.getElementById('password-input').value;
+            try {
+                await loadData();
+                loginBox.style.display = 'none';
+                app.style.display = 'block';
+            } catch (e) {
+                document.getElementById('login-error').textContent = 'Verbindung zum Server fehlgeschlagen.';
+            }
+        });
+
+        document.getElementById('add-row-btn').addEventListener('click', () => addRow());
+
+        document.getElementById('save-btn').addEventListener('click', async () => {
+            const ranges = Array.from(rowsEl.querySelectorAll('.admin-row')).map(row => {
+                const priceVal = row.querySelector('.r-price').value;
+                return {
+                    start: row.querySelector('.r-start').value,
+                    end: row.querySelector('.r-end').value,
+                    status: row.querySelector('.r-status').value,
+                    price: priceVal === '' ? undefined : Number(priceVal),
+                };
+            });
+
+            const payload = {
+                defaultPrice: Number(document.getElementById('default-price').value) || null,
+                extraGuestPrice: Number(document.getElementById('extra-guest-price').value) || null,
+                ranges,
+            };
+
+            statusEl.textContent = 'Wird gespeichert...';
+            statusEl.className = '';
+
+            try {
+                const res = await fetch(`${WORKER_URL}/api/availability`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
+                    body: JSON.stringify(payload),
+                });
+                const result = await res.json();
+                if (res.ok) {
+                    statusEl.textContent = 'Gespeichert.';
+                    statusEl.className = 'status-message success';
+                } else {
+                    statusEl.textContent = 'Fehler: ' + (result.error || res.status);
+                    statusEl.className = 'status-message error';
+                }
+            } catch (e) {
+                statusEl.textContent = 'Verbindung fehlgeschlagen.';
+                statusEl.className = 'status-message error';
+            }
+        });
+    </script>
+</body>
+</html>
