@@ -83,7 +83,7 @@
         }
 
         async function loadData() {
-            const res = await fetch(`${WORKER_URL}/api/availability`);
+            const res = await fetch(`${WORKER_URL}/api/availability`, { cache: 'no-store' });
             const data = await res.json();
             document.getElementById('default-price').value = data.defaultPrice ?? '';
             document.getElementById('extra-guest-price').value = data.extraGuestPrice ?? '';

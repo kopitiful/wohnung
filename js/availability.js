@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     try {
-        const res = await fetch(`${WORKER_URL}/api/availability`);
+        const res = await fetch(`${WORKER_URL}/api/availability`, { cache: 'no-store' });
         availability = await res.json();
     } catch (e) {
         if (priceEl) priceEl.textContent = 'Preis auf Anfrage – bitte Kontaktformular nutzen.';

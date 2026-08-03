@@ -60,7 +60,7 @@ export default {
     if (request.method === "GET") {
       const data = await env.AVAILABILITY.get(KV_KEY, "json");
       const payload = data || { defaultPrice: null, extraGuestPrice: null, ranges: [] };
-      return json(payload, 200, { ...headers, "Cache-Control": "public, max-age=60" });
+      return json(payload, 200, { ...headers, "Cache-Control": "no-store" });
     }
 
     if (request.method === "POST") {
