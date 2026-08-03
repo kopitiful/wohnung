@@ -26,4 +26,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://ferienwohnung-62i.pages.dev/sitemap.xml
+Sitemap: https://ferienwohnungdenhaag.pages.dev/sitemap.xml

@@ -1,5 +1,5 @@
 const ALLOWED_ORIGINS = [
-  "https://ferienwohnung-62i.pages.dev",
+  "https://ferienwohnungdenhaag.pages.dev",
 ];
 
 const KV_KEY = "availability";

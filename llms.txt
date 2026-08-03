@@ -13,6 +13,6 @@
 
 ## Links
 
-- Website: https://ferienwohnung-62i.pages.dev/
-- Verfügbarkeit & Preis: https://ferienwohnung-62i.pages.dev/#calendar
-- Kontakt/Anfrage: https://ferienwohnung-62i.pages.dev/#inquiryForm
+- Website: https://ferienwohnungdenhaag.pages.dev/
+- Verfügbarkeit & Preis: https://ferienwohnungdenhaag.pages.dev/#calendar
+- Kontakt/Anfrage: https://ferienwohnungdenhaag.pages.dev/#inquiryForm
