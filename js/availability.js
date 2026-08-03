@@ -1,5 +1,5 @@
 // Nach dem Deployen des Workers hier die echte URL eintragen (siehe worker/README.md)
-const WORKER_URL = "https://REPLACE_WITH_YOUR_WORKER.workers.dev";
+const WORKER_URL = "https://steep-cloud-855d.tilohue.workers.dev";
 
 document.addEventListener('DOMContentLoaded', async function () {
     const priceEl = document.getElementById('dynamic-price');
