@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  "name": "Ferienwohnung Den Haag",
-  "description": "160m² Familienwohnung mit Kanalblick nahe Strand und Dünen, 4 Schlafzimmer, Stadtteil Leyenburg.",
+  "name": "Kanalhaus Veenendaalkade",
+  "description": "160m² Familienwohnung mit Kanalblick nahe Strand und Dünen, 4 Schlafzimmer, bis 8 Gäste, Stadtteil Leyenburg.",
   "url": "https://ferienwohnungdenhaag.pages.dev/",
   "address": {
     "@type": "PostalAddress",
